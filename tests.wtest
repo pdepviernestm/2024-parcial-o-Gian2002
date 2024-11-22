@@ -1,0 +1,25 @@
+import ejParcialObjetosChianetta.*
+
+test "explotar emocionalmente"{
+    const gian = new Persona{edad = 14}
+    assert.that(gian.esAdolescente())
+    gian.agregarEmocion(furia)
+    gian.agregarEmocion(tristeza)
+    const fracturarse = new Evento{descripcion = fractura, impacto = 15}
+    assert.notThat(gian.estaPorExplotar())
+  }
+
+  test "un grupo de personas" {
+    const gian = new Persona{edad = 14}
+    const facundo = new Persona{edad = 18}
+    gian.agregarEmocion(furia)
+    gian.agregarEmocion(tristeza)
+    facundo.agregarEmocion(alegria)
+    facundo.agregarEmocion(temor)
+    const fracturarse = new Evento{descripcion = fractura, impacto = 15}
+    grupoDePersonas.agregarPersona(gian)
+    grupoDePersonas.agregarPersona(facundo)
+    grupoDePersonas.hacerVivirEvento(fracturarse)
+    assert.notThat(gian.estaPorExplotar())
+    assert.notThat(facundo.estaPorExplotar())
+  }
